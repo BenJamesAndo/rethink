@@ -1,5 +1,6 @@
 import POT_056905_WW from './devices/POT_056905_WW'
 import WTDN3 from './devices/WTDN3'
+import RAC_056905_WW_T1 from './devices/RAC_056905_WW_T1'
 import RAC_056905_WW from './devices/RAC_056905_WW'
 import WIN_056905_WW from './devices/WIN_056905_WW'
 import Dev_2REF11EIDA__4 from './devices/2REF11EIDA__4'
@@ -43,6 +44,7 @@ type T2Factory = new (HA: Connection, thinq: T2Device, metadata: Metadata) => HA
 
 const t1deviceTypes: Record<string, T1Factory> = {
     WTDN3,
+    RAC_056905_WW: RAC_056905_WW_T1, // QCA4002 module, 2.6.7_RTOS_3K firmware: same model id as the TLV variant, but registers over ThinQ1 (issue #70)
 }
 
 const t2deviceTypes: Record<string, T2Factory> = {
